@@ -1,11 +1,11 @@
 #!/bin/bash
 
-datasets=("en-codwe" "oxford" "wordnet" "slang" "wiki")
+datasets=("en-codwe" "oxford" "wordnet" "slang" "wiki" "stop")
 models=("flan-t5-definition-en-xl")
 
 # Loop through datasets
 for dataset in "${datasets[@]}"/*; do
-    if [[ "$dataset" == 'wiki/*' ]]; then
+    if [[ "$dataset" == 'stop/*' ]]; then
         continue
     fi
 
