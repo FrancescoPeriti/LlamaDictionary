@@ -5,7 +5,6 @@
 
 export HF_DATASETS_CACHE=$TMPDIR
 export HF_HOME=$TMPDIR
-
 export CUDA_VISIBLE_DEVICES="0"
 
 echo "Output: $1"
