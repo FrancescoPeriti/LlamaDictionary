@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#!/bin/bash
-
 main_folders=("dwug_en/wsi" "dwug_en/wsi25" "dwug_en/wsi50" "dwug_en/wsi75" "dwug_en/wsi100")
 ft_model_folders=("lora-models/" "lora-models/" "none")
 ft_model_names=("llama2chat-1024-2048-0.1-0.001-1e-4" "llama3instruct-512-1024-0.05-0.001-1e-4" "flan-t5-definition-en-xl")
