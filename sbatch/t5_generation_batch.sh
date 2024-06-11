@@ -10,7 +10,7 @@ for dataset in "${datasets[@]}"/*; do
     fi
 
     for model in "${models[@]}"; do
-        # File does not exist and folder exists
+        # File does not exist
         if [ ! -e "$output_filename" ]; then
             sbatch sbatch/t5_generation_template.sh "datasets/${dataset}_test.jsonl"
         fi
