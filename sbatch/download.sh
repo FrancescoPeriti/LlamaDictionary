@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -A NAISS2024-5-148 -p alvis
+#SBATCH -A [YOUR-PROJECT-ID] -p alvis
 #SBATCH -t 00:20:00
 #SBATCH -C NOGPU
 
