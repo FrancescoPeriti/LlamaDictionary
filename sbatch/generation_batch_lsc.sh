@@ -23,7 +23,7 @@ for main_folder in "${main_folders[@]}"; do
             new_name="${base_name}.txt"
             output_filename="lsc$suffix-lora-answers/$ft_model_name/$new_name"
             echo "$base_name $filename $new_name $output_filename" "$qlora"
-            sbatch sbatch/generation_template.sh $output_filename $model_name "$ft_model_folder/$ft_model_name/final-epoch4" $filename $qlora
+            sbatch sbatch/generation_template.sh $output_filename $ft_model_name "$ft_model_folder/$ft_model_name/final-epoch4" $filename $qlora
         done
     done
 done
