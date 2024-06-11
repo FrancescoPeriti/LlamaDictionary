@@ -1,7 +1,7 @@
 #!/bin/bash
 
 model_folders=("t5-answers" "qlora-answers" "lora-answers")
-datasets=("oxford" "wordnet" "slang" "wiki" "en-codwoe")
+datasets=("oxford" "wordnet" "slang" "wiki" "en-codwoe" "stop")
 
 # Loop through model folders
 for folder in "${model_folders[@]}"; do
@@ -12,7 +12,7 @@ for folder in "${model_folders[@]}"; do
         # Loop through datasets
         for dataset in "${datasets[@]}"/*; do
 
-            if [[ "$dataset" == 'wiki/*' ]]; then
+            if [[ "$dataset" == 'stop/*' ]]; then
                 continue
             fi
 
