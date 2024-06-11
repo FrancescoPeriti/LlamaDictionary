@@ -1,7 +1,7 @@
 #!/bin/bash
 
 model_folders=("qlora-models" "lora-models")
-datasets=("en-codwe" "oxford" "wordnet" "slang" "wiki" "stop")
+datasets=("en-codwoe" "oxford" "wordnet" "slang" "wiki" "stop")
 
 # Loop through model folders
 for folder in "${model_folders[@]}"; do
