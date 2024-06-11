@@ -1,8 +1,7 @@
 #!/bin/bash
 
 ft_model_folder="lora-models/"
-qlora="False"
-
+qlora="False" # if you want to test QLoRA fine-tuned models, set it to True
 model_names=("meta-llama/Llama-2-7b-chat-hf" "meta-llama/Meta-Llama-3-8B-Instruct")
 ft_model_names=("llama2chat-1024-2048-0.05-0.001-1e-4" "llama3instruct-512-1024-0.05-0.001-1e-4")
 
