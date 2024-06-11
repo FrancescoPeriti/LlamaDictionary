@@ -1,7 +1,7 @@
 #!/bin/bash
 
 model_folders=("t5-answers" "qlora-answers" "lora-answers")
-datasets=("oxford" "wordnet" "slang" "wiki" "en-codwe")
+datasets=("oxford" "wordnet" "slang" "wiki" "en-codwoe")
 
 # Loop through model folders
 for folder in "${model_folders[@]}"; do
