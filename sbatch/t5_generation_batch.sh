@@ -1,6 +1,6 @@
 #!/bin/bash
 
-datasets=("en-codwe" "oxford" "wordnet" "slang" "wiki" "stop")
+datasets=("en-codwoe" "oxford" "wordnet" "slang" "wiki" "stop")
 models=("flan-t5-definition-en-xl")
 
 # Loop through datasets
