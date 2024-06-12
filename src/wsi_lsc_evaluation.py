@@ -105,7 +105,7 @@ for suffix in ['', '25', '50', '75', '100']:
             for metric in ['ARI', 'RI', 'PUR']:
                 record[metric] = np.array([scores[metric][target] for target in df_gold.lemma]).mean().round(3)
             for column in ['n_cluster', 'n_true_cluster']:
-                record[metric] = [scores[column][target] for target in df_gold.lemma]
+                record[column] = [scores[column][target] for target in df_gold.lemma]
 
             records.append(record)
 
