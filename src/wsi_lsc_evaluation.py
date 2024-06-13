@@ -2,6 +2,7 @@ import os
 import json
 import warnings
 warnings.filterwarnings("ignore")
+from collections import Counter
 import numpy as np
 import string
 import pandas as pd
@@ -12,7 +13,7 @@ from collections import defaultdict
 from scipy.spatial.distance import cdist
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity, pairwise_distances
-from sklearn.cluster import HDBSCAN
+from sklearn.cluster import AffinityPropagation, HDBSCAN, KMeans
 from sklearn.metrics import adjusted_rand_score, rand_score
 
 def purity_score(y_true, y_pred):
@@ -27,21 +28,29 @@ def APDP(embeddings, L):
     mu_E2 = np.array([embeddings[1][L2 == label].mean(axis=0) for label in np.unique(L2)])
     return np.mean(cdist(mu_E1, mu_E2, metric='canberra'))
 
-
 # load targets
 targets = sorted([target.replace('.jsonl', '') for target in os.listdir(f'dwug_en/wsi/')])
-#targets = ['attack', 'circle', 'fiction', 'lane', 'pin', 'rag', 'stab', 'twist', 'bag', 'contemplation', 'gas', 'lass', 'plane', 'record', 'stroke', 'word', 'ball', 'donkey', 'graft', 'multitude', 'player', 'relationship', 'thump', 'bit', 'edge', 'head', 'ounce', 'prop', 'risk', 'tip', 'chairman', 'face', 'land', 'part', 'quilt', 'savage', 'tree']
-
 
 import argparse
 parser = argparse.ArgumentParser(prog='WSI-LSC', description="WSI-LSC evaluation")
 parser.add_argument('-m', '--model', type=str, default="sentence-transformers/all-distilroberta-v1")
+parser.add_argument('-l', '--length', type=int, default=1)
 args = parser.parse_args()
 
 # load model
+#model = SentenceTransformer("sentence-transformers/all-distilroberta-v1")
 model = SentenceTransformer(args.model)
 
-ap = HDBSCAN(metric='precomputed', allow_single_cluster=True, min_cluster_size=2, cluster_selection_method='leaf')
+# affinity propagation
+ap = AffinityPropagation(affinity='precomputed',
+                         damping=0.5,
+                         max_iter=200,
+                         convergence_iter=15,
+                         copy=True,
+                         preference=None,
+                         random_state=42)
+
+ap = HDBSCAN(metric='precomputed', allow_single_cluster=True, min_cluster_size=2, cluster_selection_method='leaf') #, cluster_selection_epsilon=0.1)#, allow_single_cluster=\
 
 records = list()
 for suffix in ['100', '25', '50', '75', '']:
@@ -55,7 +64,7 @@ for suffix in ['100', '25', '50', '75', '']:
             for target in targets:
                 # load dataset
                 df = load_dataset('json', data_files=f'dwug_en/wsi{suffix}/{target}.jsonl', split='train').to_pandas()
-                df['gloss'] = [" ".join([i for i in line.strip().split() if len(i) > 1])
+                df['gloss'] = [" ".join([i for i in line.strip().split() if len(i) > args.length])
                             for line in open(f'{folder_answers}/{ft_model_name}/{target}.txt', mode='r', encoding='utf-8')]
 
                 # filter sentence for which models didn't answer
