@@ -107,7 +107,7 @@ for suffix in ['100', '25', '50', '75', '']:
             df_gold = df_gold[['lemma', 'change_graded']]
             df_gold = df_gold[df_gold['lemma'].isin(targets)]
             
-            record = dict(suffix=suffix, model_folder=model_folder, ft_model_name=ft_model_name, model=args.model)
+            record = dict(suffix=suffix, model_folder=model_folder, ft_model_name=ft_model_name, model=args.model, filter_=args.length)
             corr, _ = spearmanr(df_gold.change_graded.values, [scores['APD'][target] for target in df_gold.lemma])
             record['APD']=round(corr, 3)
             corr, _ = spearmanr(df_gold.change_graded.values, [scores['APDP'][target] for target in df_gold.lemma])
