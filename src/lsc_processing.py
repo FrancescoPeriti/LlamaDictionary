@@ -49,22 +49,22 @@ for target in targets:
     df['example'] = test_dataset.map(lambda x: {'example': processing(x)})['example']
     df.to_json(f'dwug_en/wsi/{target}.jsonl', orient='records', lines=True)
 
-    # store datasets with limited contexts (25 chars)
+    # store datasets with limited contexts (25 chars) *2 (left and right)
     test_dataset = load_dataset('json', data_files=f'dwug_en/raw_wsi/{target}.jsonl', split='train')
     df['example'] = test_dataset.map(lambda x: {'example': processing(x, 25)})['example']
     df.to_json(f'dwug_en/wsi25/{target}.jsonl', orient='records', lines=True)
 
-    # store datasets with limited contexts (50 chars)
+    # store datasets with limited contexts (50 chars) *2 (left and right)
     test_dataset = load_dataset('json', data_files=f'dwug_en/raw_wsi/{target}.jsonl', split='train')
     df['example'] = test_dataset.map(lambda x: {'example': processing(x, 50)})['example']
     df.to_json(f'dwug_en/wsi50/{target}.jsonl', orient='records', lines=True)
 
-    # store datasets with limited contexts (75 chars)
+    # store datasets with limited contexts (75 chars) *2 (left and right)
     test_dataset = load_dataset('json', data_files=f'dwug_en/raw_wsi/{target}.jsonl', split='train')
     df['example'] = test_dataset.map(lambda x: {'example': processing(x, 75)})['example']
     df.to_json(f'dwug_en/wsi75/{target}.jsonl', orient='records', lines=True)
 
-    # store datasets with limited contexts (100 chars)
+    # store datasets with limited contexts (100 chars) *2 (left and right)
     test_dataset = load_dataset('json', data_files=f'dwug_en/raw_wsi/{target}.jsonl', split='train')
     df['example'] = test_dataset.map(lambda x: {'example': processing(x, 100)})['example']
     df.to_json(f'dwug_en/wsi100/{target}.jsonl', orient='records', lines=True)
