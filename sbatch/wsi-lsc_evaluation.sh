@@ -14,6 +14,6 @@ models=("all-mpnet-base-v2" "multi-qa-mpnet-base-dot-v1" "all-distilroberta-v1" 
 
 for l in "${lengths[@]}"; do
     for model in "${models[@]}"; do
-        python src/wsi_lsc_evaluation.py -m "$model" - $l
+        python src/wsi_lsc_evaluation.py -m "$model" -l $l
     done
 done
