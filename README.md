@@ -93,4 +93,10 @@ python src/wsi_plot.py
 python src/lsc_plot.py
 ```
 
-Our results are available in the `research-output` folder, while the downloaded and processed datasets will be available (after running our script) in the `datasets`, `wic`, and `dwug_en` folders. Note that the: `*answers` folders contain generated definitions for each line in the considered datasets, `*evaluation` folderds contain the scores for each metric considered in the DG task.
+Our results are available. In:
+- `Flan-T5s.zip` and `LlamaDitionary.zip`, you find generate definitions. The `*answers` folders inside contain generated definitions for each line in the considered datasets, `*evaluation` folderds contain the scores for each metric considered in the DG task. Due to space limitations, we are unable to load all our research outputs for all the fine-tuned models. However, if you are interested in accessing this output, feel free to contact the authors for access.
+- `wic-results.jsonl` and `wsi-lsc.jsonl` contain results for WiC, WSI, and LSC evaluation.
+
+The downloaded and processed datasets will be available (after running our script) in the `datasets`, `wic`, and `dwug_en` folders. 
+
+
