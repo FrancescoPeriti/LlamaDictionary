@@ -5,12 +5,6 @@ This is the official repository for our paper _Automatically Generated Definitio
 - [Abstract](#abstract)
 - [Getting Started](#getting-started)
 - [Reproducing Results](#reproducing-results)
-  -  [Download Data](#download-data)
-  -  [Data Augmentation](#data-augmentation)
-  -  [Data Evaluation](#data-evaluation)
-  -  [Fine-tuning](#fine-tuning)
-  -  [Model Evaluation](#model-evaluation)
-  -  [WiC-WSD-LSC Evaluation](#WiC-WSD-LSC-evaluation)
 - [References](#references)
 
 ## Abstract
@@ -88,5 +82,15 @@ To print the evaluation result we obtained on the Definition Generation task, ru
 ```python 
 python src/print_dg_scores.py
 ```
+To make the plot in our paper:
+```python 
+python src/lora_plot.py --qlora --metric bertscore
+python src/lora_plot.py --qlora --metric nltk_bleu
+python src/lora_plot.py --lora --metric bertscore
+python src/lora_plot.py --lora --metric nltk_bleu
+python src/wic_plot.py
+python src/wsi_plot.py
+python src/lsc_plot.py
+```
 
-Our results are available in the folder `research-output`
+Our results are available in the `research-output` folder, while the downloaded and processed datasets will be available (after running our script) in the `datasets`, `wic`, and `dwug_en` folders. Note that the: `*answers` folders contain generated definitions for each line in the considered datasets, `*evaluation` folderds contain the scores for each metric considered in the DG task.
