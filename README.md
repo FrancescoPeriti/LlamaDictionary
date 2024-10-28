@@ -3,7 +3,19 @@ This is the official repository for our paper _Automatically Generated Definitio
 
 Our models are available on hugginface 🤗: 
 - [FrancescoPeriti/Llama2Dictionary](https://huggingface.co/FrancescoPeriti/Llama2Dictionary)
-- [FrancescoPeriti/Llama3Dictionary](https://huggingface.co/FrancescoPeriti/Llama3Dictionary) 
+- [FrancescoPeriti/Llama3Dictionary](https://huggingface.co/FrancescoPeriti/Llama3Dictionary)
+
+```
+@InProceedings{periti2024automatically,
+    title = {{Automatically Generated Definitions and their utility for Modeling Word Meaning}}, 
+    author = {Periti, Francesco and Alfter, David and Tahmasebi, Nina},
+    booktitle = "Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (to appear)",
+    month = nov,
+    year = "2024",
+    address = "Miami, Florida",
+    publisher = "Association for Computational Linguistics",
+}
+```
 
 ## Table of Contents
 - [Abstract](#abstract)
