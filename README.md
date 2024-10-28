@@ -1,6 +1,10 @@
 # Automatically Generated Definitions and their utility for Modeling Word Meaning
 This is the official repository for our paper _Automatically Generated Definitions and their utility for Modeling Word Meaning_
 
+Our models are available on hugginface 🤗: 
+- [FrancescoPeriti/Llama2Dictionary](https://huggingface.co/FrancescoPeriti/Llama2Dictionary)
+- [FrancescoPeriti/Llama3Dictionary](https://huggingface.co/FrancescoPeriti/Llama3Dictionary) 
+
 ## Table of Contents
 - [Abstract](#abstract)
 - [Getting Started](#getting-started)
